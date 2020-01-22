@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>XB Software test</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <h2>List of cities:</h2>
+  <div class="outputCityMap">CityMap</div>
+  <div class="mostCity">
+    <div class="divMost">
+      <p>The name of the northernmost city is:</p>
+      <div class="output outputNorthernmost"></div>
+      <button class="northernmostButton">Update Northernmost</button>
+    </div>
+    <div class="divMost">
+      <p>The name of the southernmost city is:</p>
+      <div class="output outputSouthernmost"></div>
+      <button class="southernmostButton">Update Southernmost</button>
+    </div>
+    <div class="divMost">
+      <p>The name of the easternmost city is:</p>
+      <div class="output outputEasternmost"></div>
+      <button class="easternmostButton">Update Easternmost</button>
+    </div>
+    <div class="divMost">
+      <p>The name of the westernmost city is:</p>
+      <div class="output outputWesternmost"></div>
+      <button class="westernmostButton">Update Westernmost</button>
+    </div>
+  </div>
+  <div class="divMost">
+    <p>Enter the coordinates:</p>
+    <input class="latitude" type="text" placeholder="Latitude">
+    <input class="longitude" type="text" placeholder="Longitude">
+    <button class="searchClosestButton">Search closest city</button>
+    <p>Coordinates:</p>
+    <div class="output outputCoordinates"></div>
+    <p>Closest city:</p>
+    <div class="output outputClosest"></div>
+  </div>
+
+  <script type="module" src="modules/main.js"></script>
+</body>
+
+</html>
