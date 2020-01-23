@@ -39,6 +39,7 @@ function init() {
     cityInput: document.querySelector('.cityInput'),
     latitudeCreate: document.querySelector('.latitudeCreate'),
     longitudeCreate: document.querySelector('.longitudeCreate'),
+    pieWebix: document.querySelector('.pieWebix')
   };
 
   htmlElements.outputCityMap.innerText = stringCitiesList;
@@ -101,7 +102,6 @@ function validateLongitude(coordinate, isCreate) {
 function renderSelectState() {
   const states = cityMap.getStates().split(' ');
   htmlElements.selectState.innerHTML = "";
-  htmlElements.selectStates.innerHTML = "";
 
   const select = document.createElement("select");
   select.classList.add("output");
@@ -181,6 +181,10 @@ function createFieldClick() {
 
 //Super advanced task
 function renderWebix() {
+  htmlElements.pieWebix.innerHTML = "";
+  const title = document.createElement("div");
+  title.innerText = 'Visual representation for the states using webix charts:';
+  htmlElements.pieWebix.appendChild(title);
 
   const dataWebix = cityMap.getDataWebix();
 
