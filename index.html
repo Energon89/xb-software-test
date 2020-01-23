@@ -7,6 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>XB Software test</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="//cdn.webix.com/edge/webix.css" type="text/css">
+  <script src="//cdn.webix.com/edge/webix.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -16,22 +18,18 @@
     <div class="divMost">
       <p>The name of the northernmost city is:</p>
       <div class="output outputNorthernmost"></div>
-      <button class="northernmostButton">Update Northernmost</button>
     </div>
     <div class="divMost">
       <p>The name of the southernmost city is:</p>
       <div class="output outputSouthernmost"></div>
-      <button class="southernmostButton">Update Southernmost</button>
     </div>
     <div class="divMost">
       <p>The name of the easternmost city is:</p>
       <div class="output outputEasternmost"></div>
-      <button class="easternmostButton">Update Easternmost</button>
     </div>
     <div class="divMost">
       <p>The name of the westernmost city is:</p>
       <div class="output outputWesternmost"></div>
-      <button class="westernmostButton">Update Westernmost</button>
     </div>
   </div>
   <div class="divMost">
@@ -43,6 +41,22 @@
     <div class="output outputCoordinates"></div>
     <p>Closest city:</p>
     <div class="output outputClosest"></div>
+  </div>
+  <div class="divMost">
+    <p>Search by states:</p>
+    <div class="selectState"></div>
+    <div class="output outputCities">No result</div>
+  </div>
+  <div class="divMost">
+    <p>Create a field:</p>
+    <input class="cityInput" type="text" placeholder="City">
+    <div class="selectStates"></div>
+    <input class="latitudeCreate" type="text" placeholder="Latitude">
+    <input class="longitudeCreate" type="text" placeholder="Longitude">
+    <button class="createField">CREATE</button>
+  </div>
+  <div id="pieWebix">
+    <p>Visual representation for the states using webix charts:</p>
   </div>
 
   <script type="module" src="modules/main.js"></script>

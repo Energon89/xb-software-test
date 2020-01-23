@@ -1,4 +1,4 @@
-class CityMap {
+export class CityMap {
   constructor(string) {
     this.list = string
       .replace(/["'\n ]/g, '')
@@ -14,7 +14,7 @@ class CityMap {
         }
       });
   }
-
+  //task 1
   getNorthernMostName() {
     const result = this.list.reduce(
       (northMostMap, currentMap) => {
@@ -57,7 +57,7 @@ class CityMap {
     )
     return result.city;
   }
-
+  //task 2
   getNearestCity(longitude, latitude) {
     Number.prototype.toRad = function () { return this * Math.PI / 180; }
     const R = 6371; // km
@@ -84,7 +84,7 @@ class CityMap {
     );
     return result.city;
   }
-
+  //task 3
   getStates() {
     function unique(arr) {
       return Array.from(new Set(arr));
@@ -93,6 +93,59 @@ class CityMap {
       .map(currentMap => currentMap.abbreviation)
     ).join(' ');
   };
-}
+  //advanced task
+  getCyties(state) {
+    let cities = [];
+    this.list.map(currentMap => {
+      if (currentMap.abbreviation === state) {
+        return cities.push(currentMap);
+      }
+    });
+    return cities;
+  }
 
-export { CityMap };
+  getNewList(city, state, latitude, longitude) {
+    const newList = this.list;
+    newList.push({
+      city: city,
+      abbreviation: state,
+      latitude: latitude,
+      longitude: longitude
+    });
+    return newList
+      .map(elem => {
+        return `${elem.city}, ${elem.abbreviation}, ${elem.latitude}, ${elem.longitude};
+      `;
+      })
+      .join(' ');
+  }
+
+  //Super advanced task
+  getSales(abbr) {
+    const arr = this.list.map(currentMap => currentMap.abbreviation);
+    let counts = {};
+
+    for (let i = 0; i < arr.length; i++) {
+      const num = arr[i];
+      counts[num] = counts[num] ? counts[num] + 1 : 1;
+    }
+    return counts[abbr];
+  }
+
+  getDataWebix() {
+    let data = [];
+    this.list.map(currentMap => {
+      data.push({ abbreviation: currentMap.abbreviation, sales: this.getSales(currentMap.abbreviation) });
+    });
+
+    function uniqBy(a, key) {
+      return [
+        ...new Map(
+          a.map(x => [key(x), x])
+        ).values()
+      ]
+    };
+
+    return uniqBy(data, it => it.abbreviation);
+  }
+}
