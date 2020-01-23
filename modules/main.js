@@ -211,5 +211,3 @@ function renderWebix() {
     data: dataWebix.map(data => { return { sales: data.sales, abbreviation: data.abbreviation, color: getRandomColor() } })
   });
 }
-
-console.log('State abbreviations from the list of cities:', cityMap.getStates());
